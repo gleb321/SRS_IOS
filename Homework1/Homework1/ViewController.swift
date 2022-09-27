@@ -11,7 +11,8 @@ import UIKit
 class ViewController: UIViewController {
     private enum Constants {
         static let viewsNumber: CGFloat = 8
-        static let radius: CGFloat = 130.0
+        static let verticalOffset: CGFloat = 50
+        static let radius: CGFloat = 120.0
     }
     
     private enum Varuables {
@@ -29,11 +30,11 @@ class ViewController: UIViewController {
         let delta: CGFloat = 2 * CGFloat.pi / Constants.viewsNumber
         var alpha: CGFloat = CGFloat.pi / Constants.viewsNumber
         for view in views {
-            view.frame.size.width = CGFloat.random(in: 120...170)
-            view.frame.size.height = CGFloat.random(in: 150...250)
+            view.frame.size.width = CGFloat.random(in: 100...140)
+            view.frame.size.height = CGFloat.random(in: 150...190)
             view.center = CGPoint(
                 x: screen.center.x + Constants.radius * cos(alpha),
-                y: screen.center.y + Constants.radius * sin(alpha)
+                y: screen.center.y - Constants.verticalOffset + Constants.radius * sin(alpha)
             )
             view.backgroundColor = UIColor.black
             view.layer.cornerRadius = Varuables.radiusDelta
